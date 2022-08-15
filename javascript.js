@@ -58,6 +58,7 @@ function game() {
         else {
             computerScore += 1;
         }
+        console.log(`${result} [${playerScore} - ${computerScore}]`);
         alert(`${result} [${playerScore} - ${computerScore}]`);
     }
     // Compare the score to decide winner or a tie
