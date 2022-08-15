@@ -10,27 +10,22 @@ function getComputerChoice() {
 
 // Create a function that takes playerChoice and computerChoice as an input then return a string of result
 function playRound(playerSelection, computerSelection) {
-    // Create a variable to store player selection and ask for input
-    // Change the input value to lowercase for case-insensitive
-    const playerChoice = prompt("Rock? Paper? or Scissors?").toLowerCase();
-    console.log(playerChoice);
-    // Create a varialbe to store computer selection that is returned from getComputerChoice function
-    const computerChoice = getComputerChoice();
-    console.log(computerChoice);
     // Compare the two selections
-    if (playerChoice === computerChoice) {
-        return "It's a tie";
+    if (playerSelection === computerSelection) {
+        return "It's a tie.";
     }
-    else if (playerChoice === "rock" && computerChoice === "paper") {
-        return "You lose! Paper beats Rock";
+    if (playerSelection === "rock" && computerSelection === "paper") {
+        return "You lose! Paper beats Rock.";
     }
-    else if (playerChoice === "paper" && computerChoice === "scissors") {
-        return "You lose! Scissors beat Paper";
+    else if (playerSelection === "paper" && computerSelection === "scissors") {
+        return "You lose! Scissors beat Paper.";
     }
-    else if (playerChoice === "scissors" && computerChoice === "rock") {
-        return "You lose! Rock beats Scissors";
+    else if (playerSelection === "scissors" && computerSelection === "rock") {
+        return "You lose! Rock beats Scissors.";
     }
     return "You win!"
 }
 
-console.log(playRound());
+const playerSelection = prompt("Rock? Paper? or Scissors?").toLowerCase();
+const computerSelection = getComputerChoice();
+console.log(playRound(playerSelection, computerSelection));
