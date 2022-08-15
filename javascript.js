@@ -14,7 +14,7 @@ function playRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
         return "It's a tie.";
     }
-    if (playerSelection === "rock" && computerSelection === "paper") {
+    else if (playerSelection === "rock" && computerSelection === "paper") {
         return "You lose! Paper beats Rock.";
     }
     else if (playerSelection === "paper" && computerSelection === "scissors") {
@@ -23,9 +23,40 @@ function playRound(playerSelection, computerSelection) {
     else if (playerSelection === "scissors" && computerSelection === "rock") {
         return "You lose! Rock beats Scissors.";
     }
-    return "You win!"
+    return "You win!";
 }
 
-const playerSelection = prompt("Rock? Paper? or Scissors?").toLowerCase();
-const computerSelection = getComputerChoice();
-console.log(playRound(playerSelection, computerSelection));
+// Create a function that will play 5 rounds with incremented score and report the winner and loser
+function game() {
+    // Initialize the score variables
+    let playerScore = 0;
+    let computerScore = 0;
+    // Loop to count the score by incrementing if the condition is matched
+    for (let i = 0; i < 5; i++) {
+        const playerSelection = prompt("Rock? Paper? or Scissors?").toLowerCase();
+        const computerSelection = getComputerChoice();
+        const result = playRound(playerSelection, computerSelection)
+        if (result === "You win!") {
+            playerScore += 1;
+        }
+        else if (result === "It's a tie.") {
+            // Do nothing
+        }
+        else {
+            computerScore += 1;
+        }
+        alert(`${result} [${playerScore} - ${computerScore}]`);
+    }
+    // Compare the score to decide winner or a tie
+    if (playerScore > computerScore) {
+        return `You win! The score is ${playerScore} - ${computerScore}`;
+    }
+    else if (computerScore > playerScore) {
+        return `Computer wins! The score is ${playerScore} - ${computerScore}`;
+    }
+    else {
+        return `It's a tie! ${playerScore} - ${computerScore}`
+    }
+}
+
+console.log(game());
