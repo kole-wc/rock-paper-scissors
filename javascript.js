@@ -8,6 +8,18 @@ function getComputerChoice() {
     return computerChoice;
 }
 
+function getUserInput() {
+    // Ask for input
+    playerInput = prompt("Rock? Paper? or Scissors?").toLowerCase();
+    // If player input not the same as the choices ask for input again
+    if (!((playerInput == "rock") || (playerInput == "paper")|| (playerInput == "scissors"))) {
+        alert("Incorrect choice, please check the spelling.");
+        getUserInput();
+    }
+    // If the input is correct then return then just return the player input
+    return playerInput;
+}
+
 // Create a function that takes playerChoice and computerChoice as an input then return a string of result
 function playRound(playerSelection, computerSelection) {
     // Compare the two selections
@@ -33,7 +45,8 @@ function game() {
     let computerScore = 0;
     // Loop to count the score by incrementing if the condition is matched
     for (let i = 0; i < 5; i++) {
-        const playerSelection = prompt("Rock? Paper? or Scissors?").toLowerCase();
+        const playerSelection = getUserInput();
+        console.log(playerSelection);
         const computerSelection = getComputerChoice();
         const result = playRound(playerSelection, computerSelection)
         if (result === "You win!") {
