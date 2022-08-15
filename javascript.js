@@ -12,10 +12,25 @@ function getComputerChoice() {
 function playRound(playerSelection, computerSelection) {
     // Create a variable to store player selection and ask for input
     // Change the input value to lowercase for case-insensitive
-    playerChoice = prompt("Rock? Paper? or Scissors?").toLowerCase();
+    const playerChoice = prompt("Rock? Paper? or Scissors?").toLowerCase();
     console.log(playerChoice);
     // Create a varialbe to store computer selection that is returned from getComputerChoice function
-    // Compare the two selections, if true return the result message
+    const computerChoice = getComputerChoice();
+    console.log(computerChoice);
+    // Compare the two selections
+    if (playerChoice === computerChoice) {
+        return "It's a tie";
+    }
+    else if (playerChoice === "rock" && computerChoice === "paper") {
+        return "You lose! Paper beats Rock";
+    }
+    else if (playerChoice === "paper" && computerChoice === "scissors") {
+        return "You lose! Scissors beat Paper";
+    }
+    else if (playerChoice === "scissors" && computerChoice === "rock") {
+        return "You lose! Rock beats Scissors";
+    }
+    return "You win!"
 }
 
-playRound();
+console.log(playRound());
