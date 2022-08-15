@@ -73,4 +73,4 @@ function game() {
     }
 }
 
-console.log(game());
+alert(game());
