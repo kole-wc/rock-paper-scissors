@@ -20,29 +20,46 @@ function getComputerChoice() {
 //     return playerInput;
 // }
 
+let userScore = 0;
+let computerScore = 0;
+
 // Create a function that takes playerChoice and computerChoice as an input then return a string of result
 function playRound(e) {
     const playerSelection = e.target.innerText.toLowerCase();
     const computerSelection = getComputerChoice();
+    const result = document.querySelector(".result");
     
     if (playerSelection === computerSelection) {
-        return "It's a tie.";
+        result.textContent = "It's a tie.";
     }
     else if (playerSelection === "rock" && computerSelection === "paper") {
-        return "You lose! Paper beats Rock.";
+        result.textContent = "You lose! Paper beats Rock.";
+        computerScore += 1;
     }
     else if (playerSelection === "paper" && computerSelection === "scissors") {
-        return "You lose! Scissors beat Paper.";
+        result.textContent = "You lose! Scissors beat Paper."
+        computerScore += 1;
     }
     else if (playerSelection === "scissors" && computerSelection === "rock") {
-        return "You lose! Rock beats Scissors.";
+        result.textContent = "You lose! Rock beats Scissors.";
+        computerScore += 1;
     }
-    return "You win!";
+    result.textContent = "You win!";
+    userScore += 1;
+
+    console.log(computerScore);
+    console.log(userScore);
 }
+
+
+
+
+
 
 const userChoice = document.querySelector('.user-choice');
 const choices = userChoice.querySelectorAll('button');
 choices.forEach(choice => choice.addEventListener('click', playRound));
+
 
 // // Create a function that will play 5 rounds with incremented score and report the winner and loser
 // function game() {
@@ -50,33 +67,33 @@ choices.forEach(choice => choice.addEventListener('click', playRound));
 //     let playerScore = 0;
 //     let computerScore = 0;
 //     // Loop to count the score by incrementing if the condition is matched
-//     for (let i = 0; i < 5; i++) {
-//         const playerSelection = getUserInput();
-//         console.log(playerSelection);
-//         const computerSelection = getComputerChoice();
-//         const result = playRound(playerSelection, computerSelection)
-//         if (result === "You win!") {
-//             playerScore += 1;
-//         }
-//         else if (result === "It's a tie.") {
-//             // Do nothing
-//         }
-//         else {
-//             computerScore += 1;
-//         }
-//         console.log(`${result} [${playerScore} - ${computerScore}]`);
-//         alert(`${result} [${playerScore} - ${computerScore}]`);
-//     }
-//     // Compare the score to decide winner or a tie
-//     if (playerScore > computerScore) {
-//         return `You win! The score is ${playerScore} - ${computerScore}`;
-//     }
-//     else if (computerScore > playerScore) {
-//         return `Computer wins! The score is ${playerScore} - ${computerScore}`;
-//     }
-//     else {
-//         return `It's a tie! ${playerScore} - ${computerScore}`
-//     }
+    // for (let i = 0; i < 5; i++) {
+    //     const playerSelection = getUserInput();
+    //     console.log(playerSelection);
+    //     const computerSelection = getComputerChoice();
+    //     const result = playRound(playerSelection, computerSelection)
+    //     if (result === "You win!") {
+    //         playerScore += 1;
+    //     }
+    //     else if (result === "It's a tie.") {
+    //         // Do nothing
+    //     }
+    //     else {
+    //         computerScore += 1;
+    //     }
+    //     console.log(`${result} [${playerScore} - ${computerScore}]`);
+    //     alert(`${result} [${playerScore} - ${computerScore}]`);
+    // }
+    // // Compare the score to decide winner or a tie
+    // if (playerScore > computerScore) {
+    //     return `You win! The score is ${playerScore} - ${computerScore}`;
+    // }
+    // else if (computerScore > playerScore) {
+    //     return `Computer wins! The score is ${playerScore} - ${computerScore}`;
+    // }
+    // else {
+    //     return `It's a tie! ${playerScore} - ${computerScore}`
+    // }
 // }
 
 // alert(game());
