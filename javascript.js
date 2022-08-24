@@ -30,46 +30,6 @@ function getComputerChoice() {
     return computerChoice;
 }
 
-// When the either side reaches 5 wins, this function is called in playRound() function to annouce the result to the user
-function annouceResult(playerScore, computerScore, result) {
-    if (computerScore === 5) {
-        result.textContent = "Sorry. You LOSE! :P";
-    }
-    else if (playerScore === 5){
-        result.textContent = "Congratulations, VICTORY!";
-    }
-}
-
-// This function will be called to annouce the round result when the choices are compared in playRound() function
-function displayResult(roundResultText){
-    roundResult.innerHTML = roundResultText; // String text that includes <svg> tag
-
-    const svgs = document = roundResult.querySelectorAll('svg')
-    let svgStyle = "width: 20px; height: 20px; "
-
-    svgs.forEach(svg => {
-        svg.style.cssText = svgStyle;
-    });
-    
-    score.appendChild(actionHistory);
-    actionHistory.appendChild(roundResult);
-}
-
-// This function will be called to reset the game to its original state when the user click "Play again?"
-function resetGame() {
-    computerScore = 0;
-    userScore = 0;
-    mputerCount.textContent = 0;
-    userCount.textContent = 0;
-    result.remove();
-    restartButton.remove();
-    actionHistory.remove();
-    roundResult.remove();
-    action.remove();
-    choices.forEach(choice => userChoice.appendChild(choice));
-    container.insertBefore(question, userChoice);
-}
-
 // This function is called when the playRound() function is called to display the choice of the user and the computer for clarity
 function displayAction(userChoice, comChoice) {
     let svgUser = "";
@@ -100,6 +60,46 @@ function displayAction(userChoice, comChoice) {
     action.innerHTML = "<div>" + svgUser + "</div>" + "<div>" + svgCom + "</div>";
 
     score.appendChild(action);
+}
+
+// This function will be called to annouce the round result when the choices are compared in playRound() function
+function displayResult(roundResultText){
+    roundResult.innerHTML = roundResultText; // String text that includes <svg> tag
+
+    const svgs = document = roundResult.querySelectorAll('svg')
+    let svgStyle = "width: 20px; height: 20px; "
+
+    svgs.forEach(svg => {
+        svg.style.cssText = svgStyle;
+    });
+    
+    score.appendChild(actionHistory);
+    actionHistory.appendChild(roundResult);
+}
+
+// When the either side reaches 5 wins, this function is called in playRound() function to annouce the result to the user
+function annouceResult(playerScore, computerScore, result) {
+    if (computerScore === 5) {
+        result.textContent = "Sorry. You LOSE! :P";
+    }
+    else if (playerScore === 5){
+        result.textContent = "Congratulations, VICTORY!";
+    }
+}
+
+// This function will be called to reset the game to its original state when the user click "Play again?"
+function resetGame() {
+    computerScore = 0;
+    userScore = 0;
+    mputerCount.textContent = 0;
+    userCount.textContent = 0;
+    result.remove();
+    restartButton.remove();
+    actionHistory.remove();
+    roundResult.remove();
+    action.remove();
+    choices.forEach(choice => userChoice.appendChild(choice));
+    container.insertBefore(question, userChoice);
 }
 
 // Global variable to increment scores in each round (for playRound() function)
