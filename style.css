@@ -5,6 +5,7 @@ body {
     padding: 0;
     font-family: 'Lato', sans-serif;
     background: #2c146e;
+    min-height: 500px;
 }
 
 .container {
@@ -76,6 +77,9 @@ body {
     background: transparent;
     border: none;
     transition: all .08s ease;
+    font-size: 36px; 
+    color: #ffffff; 
+    font-weight: 700;
 }
 
 .user-choice button:hover {
@@ -123,10 +127,14 @@ body {
 
 /* media queries */
 
-@media (max-width: 768px) {
+@media (max-width: 900px), (max-height: 700px) {
+    .question {
+        font-size: 35px;
+    }
 
     .result {
         font-size: 36px;
+        padding: 10px 25px;
     }
 
     .scoreboard {
@@ -134,23 +142,83 @@ body {
     }
 
     .scoreboard th, .scoreboard td {
-        width: 200px;
+        width: 150px;
+    }
+
+    .action svg {
+        width: 75px;
+        height: 75px;
+    }
+
+    .user-choice {
+        gap: 10px;
+        padding: 12px 25px;
+    }
+
+    .user-choice svg{
+        width: 80px;
+        height: 80px;
+    }
+
+    .round-result {
+        font-size: 30px;
+    }
+
+    .user-choice button {
+        font-size: 40px; 
+    }
+}
+
+@media (max-width: 600px), (max-height: 600px)  {
+    .question {
+        font-size: 25px;
+    }
+
+    .result {
+        font-size: 20px;
+        padding: 10px 25px;
+    }
+
+    .scoreboard {
+        font-size: 25px;
+    }
+
+    .scoreboard th, .scoreboard td {
+        width: 100px;
     }
 
     .action svg {
         width: 50px;
         height: 50px;
     }
+
+    .user-choice {
+        gap: 10px;
+        padding: 12px 25px;
+    }
+
+    .user-choice svg{
+        width: 60px;
+        height: 60px;
+    }
+
+    .round-result {
+        font-size: 25px;
+    }
+
+    .user-choice button {
+        font-size: 25px; 
+    }
 }
 
-@media (max-width: 280px) {
-
+@media (max-width: 300px) {
     .question {
         font-size: 20px;
     }
 
     .result {
-        font-size: 20px;
+        font-size: 16px;
+        padding: 10px 25px;
     }
 
     .scoreboard {
@@ -178,5 +246,9 @@ body {
 
     .round-result {
         font-size: 20px;
+    }
+
+    .user-choice button {
+        font-size: 20px; 
     }
 }
