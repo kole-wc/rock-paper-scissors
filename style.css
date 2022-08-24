@@ -125,6 +125,13 @@ body {
     fill: #F6EB14;
 }
 
+.rule {
+    color: #00ffff;
+    border: solid 2.5px;
+    border-radius: 25px;
+    padding: 10px 20px;
+}
+
 /* media queries */
 
 @media (max-width: 900px), (max-height: 700px) {

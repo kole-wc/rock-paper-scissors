@@ -4,6 +4,7 @@ const score = document.querySelector('.score');
 const question = document.querySelector('.question');
 const userCount = document.querySelector("#user");
 const computerCount = document.querySelector("#com");
+const rule = document.querySelector('.rule');
 
 // Global declared nodes (Mainly for resetGame())
 const result = document.createElement('div');
@@ -100,6 +101,8 @@ function resetGame() {
     action.remove();
     choices.forEach(choice => userChoice.appendChild(choice));
     container.insertBefore(question, userChoice);
+    // Add the rule back
+    container.insertBefore(rule, question);
 }
 
 // Global variable to increment scores in each round (for playRound() function)
@@ -108,6 +111,9 @@ let computerScore = 0;
 
 // (Main) This function will be called when the user clicked one of the choice
 function playRound(e) {
+    // Remove the rule when the game starts
+    rule.remove()
+
     const playerSelection = e.target.id;
     const computerSelection = getComputerChoice();
     
