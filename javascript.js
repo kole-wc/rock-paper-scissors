@@ -1,6 +1,6 @@
 // Global selected nodes (Mainly for resetGame())
 const container = document.querySelector('.container');
-const score = document.querySelector('.score')
+const score = document.querySelector('.score');
 const question = document.querySelector('.question');
 const userCount = document.querySelector("#user");
 const computerCount = document.querySelector("#com");
@@ -66,8 +66,8 @@ function displayAction(userChoice, comChoice) {
 function displayResult(roundResultText){
     roundResult.innerHTML = roundResultText; // String text that includes <svg> tag
 
-    const svgs = document = roundResult.querySelectorAll('svg')
-    let svgStyle = "width: 20px; height: 20px; "
+    const svgs = document = roundResult.querySelectorAll('svg');
+    let svgStyle = "width: 20px; height: 20px; ";
 
     svgs.forEach(svg => {
         svg.style.cssText = svgStyle;
@@ -91,7 +91,7 @@ function annouceResult(playerScore, computerScore, result) {
 function resetGame() {
     computerScore = 0;
     userScore = 0;
-    mputerCount.textContent = 0;
+    computerCount.textContent = 0;
     userCount.textContent = 0;
     result.remove();
     restartButton.remove();
@@ -148,7 +148,7 @@ function playRound(e) {
         restartButton.textContent = "Play again?";
         userChoice.appendChild(restartButton);
 
-        restartButton.addEventListener('click', resetGame)
+        restartButton.addEventListener('click', resetGame);
     }
 }
 
