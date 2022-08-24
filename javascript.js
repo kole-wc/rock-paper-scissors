@@ -41,8 +41,8 @@ function annouceResult(playerScore, computerScore, result) {
 }
 
 // This function will be called to annouce the round result when the choices are compared in playRound() function
-function displayResult(result){
-    roundResult.innerHTML = result;
+function displayResult(roundResultText){
+    roundResult.innerHTML = roundResultText; // String text that includes <svg> tag
 
     const svgs = document = roundResult.querySelectorAll('svg')
     let svgStyle = "width: 20px; height: 20px; "
@@ -75,6 +75,8 @@ function displayAction(userChoice, comChoice) {
     let svgUser = "";
     let svgCom = "";
 
+    // Comparing to get the right <svg>
+    // For user
     if (userChoice === "rock") {
         svgUser = rock;
     }
@@ -84,8 +86,7 @@ function displayAction(userChoice, comChoice) {
     else {
         svgUser = scissors;
     }
-    
-
+    // For computer
     if (comChoice === "rock") {
         svgCom = rock;
     }
@@ -112,6 +113,7 @@ function playRound(e) {
     
     displayAction(playerSelection, computerSelection);
 
+    // Comparing to get result
     if (playerSelection === computerSelection) {
         displayResult(`It's a tie.`);
     }
@@ -135,6 +137,7 @@ function playRound(e) {
     computerCount.textContent = computerScore;
     userCount.textContent = userScore;
 
+    // To stop the game when either side reaches 5 wins and annouce the final result
     if (computerScore === 5 || userScore === 5) {
         container.insertBefore(result, container.firstChild);
 
